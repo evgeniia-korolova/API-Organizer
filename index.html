@@ -1,48 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Organizer</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <div class="wrapper">
-        <header class="header">
-            <div class="container container__header">
-                <h1>Organizer</h1>
-            </div>
-        </header>
-        <main class="main">
-            <div class="container container__main">
-                <section class="section__left">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>API Organizer</title>
+		<link
+			rel="stylesheet"
+			href="./style.css" />
+		<script
+			src="https://kit.fontawesome.com/269d9d67d6.js"
+			crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header class="header">
+				<div class="container container__header">
+					<h1>Organizer</h1>
+				</div>
+			</header>
+			<main class="main">
+				<div class="container main__container">
+					<section class="section__left"></section>
+					<section class="section__center">
+						<div class="choice__panel">
+							<select
+								name="country"
+								id="news-country">
+								<option value="">Choose Country</option>
+								<option value="ua">Ukraine</option>
+								<option value="us">USA</option>
+								<option value="ch">China</option>
+								<option value="fr">France</option>
+								<option value="jp">Japan</option>
+								<option value="jb">Great Britain</option>
+								<option value="jr">Germany</option>
+							</select>
+							<select
+								name="category"
+								id="news-category">
+								<option value="">Choose Category</option>
+								<option value="business">business</option>
+								<option value="entertainment">
+									entertainment
+								</option>
+								<option value="general">general</option>
+								<option value="health">health/option></option>
+								<option value="science">science</option>
+								<option value="sports">sports</option>
+								<option value="technology">technology</option>
+							</select>
+                            <button  class="show-news">Show</button>
+                            
+						</div>
 
-                </section>
-                <section class="section__center">
-                    <select name="country" id="country-news">
-                        <option value="ua">Ukraine</option>
-                        <option value="us">USA</option>
-                        <option value="ch">China</option>
-                        <option value="fr">France</option>
-                        <option value="jp">Japan</option>
-                        <option value="jb">Great Britain</option>
-                        <option value="jr">Germany</option>                       
-                    </select>
-
-                </section>
-                <section class="section__right">
-
-                </section>
-
-            </div>
-        </main>
-        <footer class="footer">
-            <div class="container container__footer">
-
-            </div>
-        </footer>
-    </div>
-    <script src="./config.js"></script>
-    <script src="./news.js"></script>
-</body>
+						<div class="news__container">
+							<!-- <div class="news__card">
+								<div class="news__img">
+									<img
+										src="./images/relaxing__cat.jpg"
+										alt="" />
+								</div>
+								<div class="news__content-block">
+									<h2 class="news__title">This is a title</h2>
+									<h3 class="news__author">
+										This is an author
+									</h3>
+									<p class="news__article">
+										Lorem ipsum dolor sit amet, consectetur
+										adipisicing elit. Nostrum atque fuga
+										repellat, odio doloribus optio
+										cupiditate maiores dolores nesciunt
+										soluta autem obcaecati dolor pariatur ea
+										quaerat tempore porro et molestiae.
+									</p>
+                                    
+								</div>
+							</div> -->
+							
+							
+							
+						</div>
+					</section>
+					<section class="section__right"></section>
+				</div>
+			</main>
+			<footer class="footer">
+				<div class="container container__footer">
+					<div class="footer__info">
+						<p>&copy; Evgeniia</p>
+						<a
+							href="https://github.com/evgeniia-korolova"
+							target="_blank"
+							><i class="fa-brands fa-github"></i
+						></a>
+						<p>2024</p>
+					</div>
+				</div>
+			</footer>
+		</div>
+		<script src="./config.js"></script>
+		<script src="./news.js"></script>
+	</body>
 </html>

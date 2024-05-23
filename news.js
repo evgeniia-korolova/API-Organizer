@@ -2,6 +2,7 @@
 // 	'https://newsapi.org/v2/top-headlines?' +
 // 	'country=us&' +
 // 	'apiKey=bd834e113bdd485691fa1c7d2f071f10';
+const APIKEY = 'bd834e113bdd485691fa1c7d2f071f10';
 
 const baseURL = 'https://newsapi.org/v2/top-headlines?';
 const countrySelect = document.querySelector('#news-country');
@@ -10,12 +11,6 @@ const choicePanel = document.querySelector('.choice__panel')
 const newsContainer = document.querySelector('.news__container');
 
 
-// let req = new Request(url);
-// fetch(req).then((response) => {
-// 	response.json().then((data) => {
-// 		console.log(data);
-// 	});
-// });
 
 document.addEventListener('DOMContentLoaded', fetchRandomNews);
 

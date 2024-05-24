@@ -45,16 +45,15 @@ function displayNews(articles) {
 	newsContainer.innerHTML = '';
 	articles.forEach((article) => {
 		
-		
 			const newsCard = document.createElement('div');
 			newsCard.classList.add('news__card');
 			const newsImgDiv = document.createElement('div');
 			newsImgDiv.classList.add('news__img');
 			const img = document.createElement('img');
 			img.classList.add('img');
-			img.src = article.media[0]['media-metadata'][2].url;
+			img.src = article['media'][0]['media-metadata'][1].url;
 
-			img.alt = article.title;
+			img.alt = article['media'][0].caption;
 			newsImgDiv.append(img);
 			const newsContentBlock = document.createElement('div');
 			newsContentBlock.classList.add('news__content-block');
@@ -98,8 +97,9 @@ function getNews() {
 		fetch(req).then((response) => {
 			response.json().then((data) => {
 				console.log(data);
-				const articles = data.response;
-				console.log(articles);
+				const articles = data.response.docs;
+                console.log(articles.docs);
+                
 				// displayNews(articles);
 			});
 		});

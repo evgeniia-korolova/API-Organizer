@@ -80,6 +80,7 @@ h1 {
 
 .news__card {
     display: flex;
+    flex-direction: column;
     align-items: center;    
     gap: 1.6rem;
     width: 100%;
@@ -99,7 +100,7 @@ h1 {
 }
 
 .news__img {
-    width: 30%;
+    width: 100%;
 }
 
 .img {

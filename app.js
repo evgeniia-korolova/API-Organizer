@@ -10,27 +10,14 @@ const APIKEY = 'dVIq16EOvnYFmeR18WrLAt13MdtyILlT';
 // const baseURL = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=YOUR_API_KEY';
 const baseURL = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?';
 
-// https://api.thenewsapi.com/v1/news/headlines?locale=us&language=en&api_token=HGB0iprIfRGAsUNw5x1HpssfApVU6UGF4lJCraqK
+
 
 const countrySelect = document.querySelector('#news-country');
 const choicePanel = document.querySelector('.choice__panel');
 
 const newsContainer = document.querySelector('.news__container');
 
-// const baseUrl = 'https://api.thenewsapi.com/v1/news/';
-// const params = {
-// 	locale: 'us',
-// 	language: 'en',
-// 	api_token: 'HGB0iprIfRGAsUNw5x1HpssfApVU6UGF4lJCraqK',
-// };
-// const queryString = Object.keys(params)
-// 	.map(
-// 		(key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
-// 	)
-// 	.join('&');
 
-// const encodedUrl = `${baseUrl}?${queryString}`;
-// console.log(encodedUrl);
 
 document.addEventListener('DOMContentLoaded', fetchRandomNews);
 
@@ -48,19 +35,7 @@ function fetchRandomNews() {
 			});
 		});
 	} catch (error) {
-		// try {
-		// 	let req = new Request(
-		// 		encodedUrl
-		// 	);
-		// 	fetch(req).then((response) => {
-		// 		response.json().then((data) => {
-		// 			console.log(data);
-		// 			// const articles = data.articles;
-		// 			// displayNews(articles);
-
-		// 		});
-		// 	});
-		// }
+		
 		console.error('Erorr fetching data', error);
 		return [];
 	}
@@ -69,8 +44,8 @@ function fetchRandomNews() {
 function displayNews(articles) {
 	newsContainer.innerHTML = '';
 	articles.forEach((article) => {
-		if (article.title == '[Removed]') return;
-		else {
+		
+		
 			const newsCard = document.createElement('div');
 			newsCard.classList.add('news__card');
 			const newsImgDiv = document.createElement('div');
@@ -105,24 +80,25 @@ function displayNews(articles) {
 			newsCard.append(newsContentBlock);
 
 			newsContainer.append(newsCard);
-		}
+		
 	});
 }
 
-// document.querySelector('.show-news').addEventListener('click', getNews);
+document.querySelector('.show-news').addEventListener('click', getNews);
 
 function getNews() {
 	try {
-		const country = document.querySelector('#news-country').value;
+		// const country = document.querySelector('#news-country').value;
 		const category = document.querySelector('#news-category').value;
 
 		let req = new Request(
-			`${baseURL}country=${country}&category=${category}&apiKey=${APIKEY}`
+            // `${baseURL}country=${country}&category=${category}&apiKey=${APIKEY}`
+            `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${category}&api-key=${APIKEY}`
 		);
 		fetch(req).then((response) => {
 			response.json().then((data) => {
-				console.log(data.articles);
-				const articles = data.articles;
+				console.log(data);
+				const articles = data.response;
 				console.log(articles);
 				// displayNews(articles);
 			});

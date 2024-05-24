@@ -4,7 +4,11 @@
 // 	'apiKey=bd834e113bdd485691fa1c7d2f071f10';
 const APIKEY = 'bd834e113bdd485691fa1c7d2f071f10';
 
+
 const baseURL = 'https://newsapi.org/v2/top-headlines?';
+
+
+
 const countrySelect = document.querySelector('#news-country');
 const choicePanel = document.querySelector('.choice__panel')
 
@@ -21,13 +25,14 @@ function fetchRandomNews() {
 		);
 		fetch(req).then((response) => {
 			response.json().then((data) => {
-				console.log(data.articles);
+				console.log(data);
 				const articles = data.articles;
 				displayNews(articles);
 				
 			});
 		});
 	}
+	
 	catch (error) {
 		console.error('Erorr fetching data', error);
 		return [];

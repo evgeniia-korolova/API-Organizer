@@ -8,7 +8,7 @@
 		<title>API Organizer</title>
 		<link
 			rel="stylesheet"
-			href="../style.css" />
+			href="./style.css" />
 		<script
 			src="https://kit.fontawesome.com/269d9d67d6.js"
 			crossorigin="anonymous"></script>
@@ -22,19 +22,35 @@
 			</header>
 			<main class="main">
 				<div class="container main__container">
-					<section class="section__left"></section>
+					<section class="section__left">
+						<div class="todo__container">
+							<form
+							class="form"
+							data-form>
+							<input
+								type="text"
+								placeholder="Todo..."
+								data-input />
+							<button class="btn">Add task</button>
+						</form>
+						<div
+							class="lists"
+							data-lists></div>
+						<div class="removeAll">
+							<button class="removeAll__btn">Remove all</button>
+						</div>
+						</div>
+						
+					</section>
 					<section class="section__center">
 						<div class="choice__panel">
-							
 							<select
 								name="category"
 								id="news-category">
 								<option value="">Choose Category</option>
 								<option value="arts">arts</option>
 								<option value="education">education</option>
-								<option value="environment">
-									environment
-								</option>
+								<option value="environment">environment</option>
 								<option value="fashion">fashion</option>
 								<option value="health">health</option>
 								<option value="science">science</option>
@@ -42,8 +58,7 @@
 								<option value="travel">travel</option>
 								<option value="universal">universal</option>
 							</select>
-                            <button  class="show-news">Show</button>
-                            
+							<button class="show-news">Show</button>
 						</div>
 
 						<div class="news__container">
@@ -69,9 +84,6 @@
                                     
 								</div>
 							</div> -->
-							
-							
-							
 						</div>
 					</section>
 					<section class="section__right"></section>
@@ -91,7 +103,8 @@
 				</div>
 			</footer>
 		</div>
-			
-		<script src="./main.js"></script>
+
+		<script src="./news/main.js"></script>
+		<script src="./todo/todo.js"></script>
 	</body>
 </html>

@@ -75,7 +75,8 @@ h1 {
     padding: 10px;
     flex-direction: column;
     overflow-y: auto;
-    max-height: 90%;
+    max-height: 85%;
+   
 }
 
 .news__card {
@@ -100,7 +101,7 @@ h1 {
 }
 
 .news__img {
-    width: 100%;
+    width: 60%;
 }
 
 .img {

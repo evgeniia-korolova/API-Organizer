@@ -14,13 +14,13 @@ document.addEventListener('DOMContentLoaded', fetchRandomNews);
 
 function fetchRandomNews() {
 	try {
-		let req1 = new Request(`${baseURL}api-key=${APIKEY}`);
+		
 		let req = new Request(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=financial&api-key=${APIKEY}`);
 		fetch(req).then((response) => {
 			response.json().then((data) => {
-				console.log(data);
+				// console.log(data);
 				const articles = data.response.docs;
-				console.log(articles);
+				// console.log(articles);
 				displayNews(articles);
 			});
 		});

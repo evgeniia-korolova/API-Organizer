@@ -1,4 +1,5 @@
 @import url('../todo/todo.css');
+@import url('../weather/weather.css');
 
 *{
     margin: 0;
@@ -49,7 +50,7 @@ h1 {
 }
 
 .choice__panel {
-    background-color: rgb(10, 111, 96);
+    background-color: rgb(6, 105, 19);
     padding: 1rem; 
     margin-bottom: 1rem;
     box-shadow: 1px 4px 4px rgb(88, 147, 137);
@@ -57,17 +58,20 @@ h1 {
     justify-content: space-around;
 }
 
-#news-country,
+
 #news-category,
-.show-news {
-   
-    /* display: block; */
+.show-news {       
     outline: none;
     border-radius: 5px;
     font-size: 1.6rem;
     cursor: pointer;
-    padding: 0.5rem;
-    
+    padding: 0.5rem;   
+    border: none; 
+    color: rgb(6, 105, 19);
+}
+
+.show-news {
+    background: #fff;
 }
 
 .news__container {

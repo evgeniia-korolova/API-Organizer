@@ -25,22 +25,23 @@
 					<section class="section__left">
 						<div class="todo__container">
 							<form
-							class="form"
-							data-form>
-							<input
-								type="text"
-								placeholder="Todo..."
-								data-input />
-							<button class="btn">Add task</button>
-						</form>
-						<div
-							class="lists"
-							data-lists></div>
-						<div class="removeAll">
-							<button class="removeAll__btn">Remove all</button>
+								class="form"
+								data-form>
+								<input
+									type="text"
+									placeholder="Todo..."
+									data-input />
+								<button class="btn">Add task</button>
+							</form>
+							<div
+								class="lists"
+								data-lists></div>
+							<div class="removeAll">
+								<button class="removeAll__btn">
+									Remove all
+								</button>
+							</div>
 						</div>
-						</div>
-						
 					</section>
 					<section class="section__center">
 						<div class="choice__panel">
@@ -86,7 +87,66 @@
 							</div> -->
 						</div>
 					</section>
-					<section class="section__right"></section>
+					<section class="section__right">
+						<div class="weather-app-wrapper">
+							<div class="weather-app">
+								<form
+									id="search-form"
+									class="search-form">								
+											<input
+												type="search"
+												placeholder="Type a city..."
+												class="search-city__input"
+												id="city-input" />
+																				
+											<button type="submit" class="search-city__btn">Search
+											</button>
+								</form>
+
+								<div class="container current-weather__container">
+									<div class="overview">
+										<h1 id="city"></h1>
+										<ul>
+											<li>
+												<span
+													id="date"
+													class="date"></span>
+											</li>
+											<li id="description"></li>
+										</ul>
+									</div>
+									<div class="weather__view">
+										<div class="weather-icon">
+											<div
+												class="weather-temperature">
+												<img
+													src=""
+													alt=""
+													id="icon" />
+											</div>
+										</div>
+										<div class="weather__current">
+											<ul>
+												<li>
+													Temperature :
+													<span class="units" id="temperature"></span>
+												</li>
+												<li>
+													Humidity:
+													<span id="humidity"></span>
+													%
+												</li>
+												<li>
+													Wind:
+													<span id="wind"></span> km/h
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
 				</div>
 			</main>
 			<footer class="footer">
@@ -106,5 +166,6 @@
 
 		<script src="./news/main.js"></script>
 		<script src="./todo/todo.js"></script>
+		<script src="./weather/weather.js"></script>
 	</body>
 </html>

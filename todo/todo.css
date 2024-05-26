@@ -106,3 +106,13 @@
 .hidden {
 	display: none;
 }
+
+@media (max-width: 1050px) {
+   
+    .section__left {
+        width: 60%;
+    }
+    .todo__container {
+        width: 100%;
+    }
+}

@@ -165,3 +165,18 @@ footer a {
 footer a:hover {
     color: rgb(18, 63, 24);
 }
+
+@media (max-width: 1050px) {
+    .main__container {
+        flex-direction: column;
+        align-items:center;
+        gap: 1rem;
+    }
+    .section__left {
+        width: 60%;
+    }
+    .section__right {
+        width: 60%;
+    }
+
+}

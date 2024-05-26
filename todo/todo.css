@@ -5,13 +5,20 @@
 .todo__container{
     width: 30rem;
     padding: 1rem;
-    min-height: 100%;
+    padding-right: 0.5rem;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    /* margin: 2rem auto; */
+   
 }
 
-
+.section__left {
+    width: 30%;
+    background: lavenderblush;
+    border: 1px solid blue;
+    padding: 1rem;
+    height: 80vh;
+}
 
 .container .form{
     background-color: #fff;
@@ -48,6 +55,8 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    overflow-y: auto;
+    max-height: 75%;
 }
 
 .lists .todo{
@@ -57,6 +66,7 @@
     background-color: #fff;
     margin-top: 0.5rem;
     padding: 0.5rem;
+    
 }
 
 .todo span{

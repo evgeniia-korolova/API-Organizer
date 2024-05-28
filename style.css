@@ -173,10 +173,13 @@ footer a:hover {
         gap: 1rem;
     }
     .section__left {
-        width: 60%;
+        width: 80%;
     }
     .section__right {
-        width: 60%;
+        width: 80%;
+    }
+    .section__center {
+        width: 80%;
     }
 
 }

@@ -9,8 +9,12 @@
 		<link
 			rel="stylesheet"
 			href="./style.css" />
-			<link rel="stylesheet" href="./todo/todo.css">
-			<link rel="stylesheet" href="./weather/weather.css">
+		<link
+			rel="stylesheet"
+			href="./todo/todo.css" />
+		<link
+			rel="stylesheet"
+			href="./weather/weather.css" />
 		<script
 			src="https://kit.fontawesome.com/269d9d67d6.js"
 			crossorigin="anonymous"></script>
@@ -91,61 +95,59 @@
 					</section>
 					<section class="section__right">
 						<div class="weather-app-wrapper">
-							<div class="weather-app">
-								<form
-									id="search-form"
-									class="search-form">								
-											<input
-												type="search"
-												placeholder="Type a city..."
-												class="search-city__input"
-												id="city-input" />
-																				
-											<button type="submit" class="search-city__btn">Search
-											</button>
-								</form>
+							<form
+								id="search-form"
+								class="search-form">
+								<input
+									type="search"
+									placeholder="Type a city..."
+									class="search-city__input"
+									id="city-input" />
 
-								<div class="container current-weather__container">
-									<div class="overview">
-										<h1 id="city"></h1>
-										<ul>
-											<li>
-												<span
-													id="date"
-													class="date"></span>
-											</li>
-											<li id="description"></li>
-										</ul>
-									</div>
-									<div class="weather__view">
-										<div class="weather-icon">
-											<div
-												class="weather-temperature">
-												<img
-													src=""
-													alt=""
-													id="icon" />
-											</div>
-										</div>
-										<div class="weather__current">
-											<ul>
-												<li>
-													Temperature :
-													<span class="units" id="temperature"></span>
-												</li>
-												<li>
-													Humidity:
-													<span id="humidity"></span>
-													%
-												</li>
-												<li>
-													Wind:
-													<span id="wind"></span> km/h
-												</li>
-											</ul>
-										</div>
-									</div>
+								<button
+									type="submit"
+									class="search-city__btn">
+									Search
+								</button>
+							</form>
+
+							<div class="container current-weather__container">
+								<!-- <h1 id="city"></h1>
+								<div class="overview">
+									<ul>
+										<li id="date"						class="date">			
+										</li>
+										<li id="description" class="description"></li>
+									</ul>
 								</div>
+								<div class="weather__view">
+									<div class="weather-icon">										
+											<img
+												src=""
+												alt=""
+												id="icon" />
+										
+									</div>
+									
+										<ul class="weather__current">
+											<li>
+												Temperature :
+												<span
+													class="temp"
+													id="temperature"></span>
+											</li>
+											<li>
+												Humidity:
+												<span id="humidity" class="humidity"></span>
+												%
+											</li>
+											<li>
+												Wind:
+												<span id="wind"></span> km/h
+											</li>
+										</ul>
+									
+								</div> -->
 							</div>
 						</div>
 					</section>

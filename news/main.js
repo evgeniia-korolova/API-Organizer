@@ -9,14 +9,14 @@ const choicePanel = document.querySelector('.choice__panel');
 
 const newsContainer = document.querySelector('.news__container');
 
-
+// start page onload
 document.addEventListener('DOMContentLoaded', fetchRandomNews);
 
 function fetchRandomNews() {
-	try {
-		
-		let req = new Request(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=financial&api-key=${APIKEY}`);
-		fetch(req).then((response) => {
+	try {		
+		fetch(
+			`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=financial&api-key=${APIKEY}`
+		).then((response) => {
 			response.json().then((data) => {
 				// console.log(data);
 				const articles = data.response.docs;
@@ -25,8 +25,7 @@ function fetchRandomNews() {
 			});
 		});
 	} catch (error) {
-		console.error('Erorr fetching data', error);
-		return [];
+		console.error('Erorr fetching data', error);		
 	}
 }
 

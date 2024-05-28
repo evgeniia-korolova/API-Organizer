@@ -48,14 +48,16 @@ ul {
     border-bottom: 1px solid black;
 }
 
-.overview li {
-    font-size: 1.6rem;
-}
-
-.weather__view {
+.view__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
     font-size: 1.6rem;
+
 }
+
+.overview li {
+    font-size: 1.6rem;
+}
+

@@ -83,7 +83,7 @@ h1 {
     flex-direction: column;
     overflow-y: auto;
     max-height: 85%;
-   
+       
 }
 
 .news__card {
@@ -177,6 +177,7 @@ footer a:hover {
     }
     .section__right {
         width: 80%;
+        height: 100%;
     }
     .section__center {
         width: 80%;

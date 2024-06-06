@@ -1,10 +1,10 @@
 const weatherContainer = document.querySelector('.current-weather__container');
+let formWeather = document.querySelector('#search-form');
 
 let cityInputElement = document.querySelector('#city-input');
 const forecastContainer = document.querySelector('.forecast__window');
 
 const forecastArray = document.querySelectorAll('.forecast__list');
-console.log(forecastArray);
 
 
 function formatDate(timestamp) {
@@ -37,42 +37,48 @@ function formatDay(timestamp) {
 	return days[day];
 }
 
+window.addEventListener('DOMContentLoaded', function () {
+    search('Odesa');
+    getForecast('Odesa')
+})
+
 //! display todays weather on search
+
+
 
 function search(city) {
 	weatherContainer.innerHTML = '';
 	try {
-		let apiKey = '0ebc654fccbc00189d5408f3d6f15b08';
+        let apiKey = '0ebc654fccbc00189d5408f3d6f15b08';
+        
 		let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 		fetch(apiUrl).then((response) => {
 			response.json().then((data) => {
 				// console.log(data);
-				
+
 				displayCity(data);
 				displayWeatherView(data);
+
 				
-				console.log(data.coord);				
 			});
 		});
 	} catch (error) {
 		console.error('Erorr fetching data', error);
 	}
-
 }
-
-
 
 function handleSubmit(event) {
 	event.preventDefault();
 	// let cityInputElement = document.querySelector('#city-input');
-	search(cityInputElement.value);	
+    search(cityInputElement.value);
+    getForecast(cityInputElement.value)
+    
 }
 
-let formWeather = document.querySelector('#search-form');
+
 formWeather.addEventListener('submit', handleSubmit);
 
-search('Odesa');
 
 
 
@@ -139,103 +145,48 @@ function displayWeatherView(data) {
 	viewContainer.append(weatherView);
 	viewContainer.append(weatherCurrent);
 
-	
 	weatherContainer.append(viewContainer);
 }
 
-
-
 // ! forecast for some days
 
+function getForecast() {
 
+    let city = cityInputElement.value;
+    let apiKey = '0ebc654fccbc00189d5408f3d6f15b08';
 
-// currentLocation()
-
-function getWeatherDetails(name, lat, lon, country) {
-	let apiKey = '0ebc654fccbc00189d5408f3d6f15b08';
-	let forecastAPIURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-	let WeatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-
-	let days = [
-		'Sunday',
-		'Monday',
-		'Tuesday',
-		'Wednesday',
-		'Thursday',
-		'Friday',
-		'Saturday',
-	];
-	fetch(WeatherApiUrl)
-		.then((res) => res.json())
+    fetch(
+		`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`
+	)
+		.then((response) => response.json())
 		.then((data) => {
 			console.log(data);
-		});
-
-	fetch(forecastAPIURL)
-		.then((res) => res.json())
-		.then((data) => {
-			const forecastList = data.daily;
-			console.log(forecastList);
-
+			let dailyData = data.list;
+			console.log(dailyData);
 			forecastContainer.innerHTML = '';
-			for (let i = 1; i < forecastList.length; i++) {
-				let date = new Date(forecastList[i].dt);
-				forecastContainer.innerHTML += `
-			<ul class="forecast__list">
-			<li> date ${date.getDate()}</li>
-			<li>${days[date.getDay()]}</li>
-			<li class='weather-icon'>
-			<img class="icon-small" src="https://openweathermap.org/img/wn/${
-				forecastList[i].weather[0].icon
-			}@2x.png">
-			</li>
-			<li> ${forecastList[i].weather[0].description}</li>
-			<li> temperature ${forecastList[i].temp.day.toFixed(0)}&deg;C</li>
-			<li> Humidity ${forecastList[i].humidity}%</li>
-			<li>Wind: ${forecastList[i]['wind_speed']} m/s</li>
-			</ul>
-			`;
-			}
-		})
-		.catch(() => {
-			console.log('error forecast');
+						for (let i = 11; i < dailyData.length; i+=8) {
+							// let date = new Date(forecastList[i].dt);
+							forecastContainer.innerHTML += `
+						<ul class="forecast__list">
+						<li> date ${dailyData[i]["dt_txt"]}</li>
+						
+						<li class='weather-icon'>
+						<img class="icon-small" src="https://openweathermap.org/img/wn/${
+							dailyData[i].weather[0].icon
+						}@2x.png">
+						</li>
+						<li> ${dailyData[i].weather[0].description}</li>
+						<li> temperature ${dailyData[i].main.temp.toFixed(0) - 273}&deg;C</li>
+						<li> Humidity ${dailyData[i].humidity}%</li>
+						<li>Wind: ${dailyData[i]['wind_speed']} m/s</li>
+						</ul>
+						`;
+						}
 		});
 }
 
 
-function getCityCoordinates() {
-	let city = document.querySelector('#city-input').value;
-	let apiKey = '0ebc654fccbc00189d5408f3d6f15b08';
-
-	if (!city) return;
-	let GeoAPIURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
-	fetch(GeoAPIURL).then(res => res.json()).then(data => {
-		let { name, lat, lon, country } = data[0];
-		getWeatherDetails(name, lat, lon, country);
-		// console.log(data)
-	}).catch(() => {
-		console.log('error')
-	})	
-}
-
-getWeatherDetails(46.48, 30.73);
-
-// console.log(getCityCoordinates(cityInputElement.value))
-formWeather.addEventListener('submit', getCityCoordinates);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// <li>${days[date.getDay()]}</li>

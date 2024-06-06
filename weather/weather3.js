@@ -177,8 +177,8 @@ function getForecast() {
 						</li>
 						<li> ${dailyData[i].weather[0].description}</li>
 						<li> temperature ${dailyData[i].main.temp.toFixed(0) - 273}&deg;C</li>
-						<li> Humidity ${dailyData[i].humidity}%</li>
-						<li>Wind: ${dailyData[i]['wind_speed']} m/s</li>
+						<li> Humidity ${dailyData[i].main.humidity}%</li>
+						<li>Wind: ${dailyData[i].wind.speed} m/s</li>
 						</ul>
 						`;
 						}

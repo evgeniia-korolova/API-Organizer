@@ -39,7 +39,8 @@ function formatDay(timestamp) {
 
 window.addEventListener('DOMContentLoaded', function () {
     search('Odesa');
-    getForecast('Odesa')
+	getForecast('Odesa');
+	moveSlides();
 })
 
 //! display todays weather on search
@@ -168,7 +169,7 @@ function getForecast() {
 							// let date = new Date(forecastList[i].dt);
 							forecastLine.innerHTML += `
 						<ul class="forecast__list">
-						<li> date ${dailyData[i]["dt_txt"]}</li>
+						<li>${dailyData[i]["dt_txt"]}</li>
 						
 						<li class='weather-icon'>
 						<img class="icon-small" src="https://openweathermap.org/img/wn/${
@@ -189,30 +190,33 @@ function getForecast() {
 // ! SLIDER
 // window.addEventListener('DOMContentLoaded', moveSlides);
 
+function moveSlides() {
+	const forecastWrapper = document.querySelector('.weather__forecast');
+	const forecastWindow = document.querySelector('.forecast__window');
+	const slides = document.getElementsByClassName('forecast__list');
+	const slidertLine = document.querySelector('.forecast__line');
 
-const forecastWrapper = document.querySelector('.weather__forecast');
-const forecastWindow = document.querySelector('.forecast__window');
-const slides = document.getElementsByClassName('forecast__list');
 
-console.log('const slides:', slides);
-const slidesList = document.querySelectorAll('.forecast__list');
-console.log('const slidesList:', slidesList)
+	console.log('const slides:', slides);
+	const slidesList = document.querySelectorAll('.forecast__list');
+	console.log('const slidesList:', slidesList)
 	
-	const slidesArray = Array.from(slides);
-	console.log(slidesArray);
+	
+	
 
-const width = forecastWindow.offsetWidth + 'px';
-console.log(width);
-console.log(slides.length);
-console.log(slidesList.length);
-	forecastLine.style.width = width * 4 + 'px';
+	// const width = forecastWindow.offsetWidth;
+	const width = forecastWindow.getComputedStyle().width;
+	console.log(width);
+	console.log(slides.length);
+	console.log(slidesList.length);
+	slidertLine.style.width = width * 4 + '%';
 	slidesList.forEach(item => {
-		item.style.width = width + 'px';
+		item.style.width = width;
 	})
 
+}
 
 
-// moveSlides();
 
 
 

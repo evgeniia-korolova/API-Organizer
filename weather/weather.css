@@ -4,6 +4,8 @@
 
 ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .weather-app-wrapper {
@@ -63,35 +65,36 @@ ul {
 
 .weather__forecast  {
     width: 100%;
-    margin: auto;
-}
-
-.forecast__line {
-    width: 100%;
+    /* margin: auto; */
     display: flex;     
     justify-content: space-around;
     align-items: center;
-    
-    
+}
+.forecast__window {
+   
+    width: 60%;      
+    border: 1px solid red;
+    /* overflow-x: hidden;      */
 }
 
-.forecast__window {
-    display: flex;   
-    width: 200px;
-    gap: 20px;
-    align-self: center;
-    border: 1px solid red;
-    overflow: hidden;
-     
+.forecast__line {
+    /* width: 240%; */
+    display: flex;    
 }
+
+
 
 .forecast__list {
     display: flex;
     flex-direction: column;
-    width: 100%;
+   
     font-size: 16px;
-    align-items: center;
+    /* align-items: center;
+    justify-content: center; */
     flex-shrink: 0; 
+    background: var(--btn-bg);
+    color: #fff;
+    
     
 }
 

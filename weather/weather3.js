@@ -2,7 +2,7 @@ const weatherContainer = document.querySelector('.current-weather__container');
 let formWeather = document.querySelector('#search-form');
 
 let cityInputElement = document.querySelector('#city-input');
-const forecastContainer = document.querySelector('.forecast__window');
+const forecastLine = document.querySelector('.forecast__line');
 
 const forecastArray = document.querySelectorAll('.forecast__list');
 
@@ -160,13 +160,13 @@ function getForecast() {
 	)
 		.then((response) => response.json())
 		.then((data) => {
-			console.log(data);
+			// console.log(data);
 			let dailyData = data.list;
 			console.log(dailyData);
-			forecastContainer.innerHTML = '';
+			forecastLine.innerHTML = '';
 						for (let i = 11; i < dailyData.length; i+=8) {
 							// let date = new Date(forecastList[i].dt);
-							forecastContainer.innerHTML += `
+							forecastLine.innerHTML += `
 						<ul class="forecast__list">
 						<li> date ${dailyData[i]["dt_txt"]}</li>
 						
@@ -183,7 +183,31 @@ function getForecast() {
 						`;
 						}
 		});
+	
 }
+
+// ! SLIDER
+
+function moveSlides() {
+const forecastWrapper = document.querySelector('.weather__forecast');
+const forecastWindow = document.querySelector('.forecast__window');
+const slides = document.getElementsByClassName('forecast__list');
+console.log(slides);
+const slidesList = forecastLine.querySelectorAll('.forecast__list');
+console.log(slidesList);
+
+const width = forecastWindow.offsetWidth;
+console.log(width);
+console.log(slides.length);
+	forecastLine.style.width = width * 4 + 'px';
+	slidesList.forEach(item => {
+		item.style.width = width + 'px';
+	})
+
+}
+
+moveSlides();
+
 
 
 

@@ -195,23 +195,43 @@ function moveSlides() {
 	const forecastWindow = document.querySelector('.forecast__window');
 	const slides = document.getElementsByClassName('forecast__list');
 	const slidertLine = document.querySelector('.forecast__line');
+	const arrPrev = document.querySelector('.arrow-prev');
+	const arrForw = document.querySelector('.arrow-forward');
+
+	let offset = 0;
 
 
 	console.log('const slides:', slides);
 	const slidesList = document.querySelectorAll('.forecast__list');
-	console.log('const slidesList:', slidesList)
-	
+	console.log('const slidesList:', slidesList)	
 	
 	
 
 	// const width = forecastWindow.offsetWidth;
-	const width = forecastWindow.getComputedStyle().width;
+	const width = window.getComputedStyle(forecastWindow).width;
 	console.log(width);
 	console.log(slides.length);
 	console.log(slidesList.length);
 	slidertLine.style.width = width * 4 + '%';
 	slidesList.forEach(item => {
 		item.style.width = width;
+	})
+
+	arrForw.addEventListener('click', () => {
+		if (offset == +width.slice(0, width.length - 2) * 3) {
+			offset = 0;
+		} else {
+			offset += +width.slice(0, width.length - 2);
+		}
+		slidertLine.style.transform = `translateX(-${offset}px)`
+	})
+	arrPrev.addEventListener('click', () => {
+		if ((offset == 0)) {
+			offset = +width.slice(0, width.length - 2) * 3;
+		} else {
+			offset -= +width.slice(0, width.length - 2);
+		}
+		slidertLine.style.transform = `translateX(-${offset}px)`
 	})
 
 }

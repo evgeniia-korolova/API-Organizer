@@ -71,14 +71,14 @@ ul {
     align-items: center;
 }
 .forecast__window {   
-    width: 50%;      
-    border: 1px solid red;
+    width: 50%;        
     overflow-x: hidden;     
 }
 
 .forecast__line {
     width: 200%;
-    display: flex;    
+    display: flex; 
+    transition: 0.5s all;   
 }
 
 
@@ -111,6 +111,7 @@ ul {
     justify-content: center;
     align-items: center;
     font-size: 22px;
+    cursor: pointer;
 }
 
 .icon-small {

@@ -70,15 +70,14 @@ ul {
     justify-content: space-around;
     align-items: center;
 }
-.forecast__window {
-   
-    width: 60%;      
+.forecast__window {   
+    width: 50%;      
     border: 1px solid red;
-    /* overflow-x: hidden;      */
+    overflow-x: hidden;     
 }
 
 .forecast__line {
-    /* width: 240%; */
+    width: 200%;
     display: flex;    
 }
 
@@ -87,10 +86,10 @@ ul {
 .forecast__list {
     display: flex;
     flex-direction: column;
-   
+   width: 50%; 
     font-size: 16px;
-    /* align-items: center;
-    justify-content: center; */
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0; 
     background: var(--btn-bg);
     color: #fff;

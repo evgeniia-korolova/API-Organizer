@@ -187,26 +187,32 @@ function getForecast() {
 }
 
 // ! SLIDER
+// window.addEventListener('DOMContentLoaded', moveSlides);
 
-function moveSlides() {
+
 const forecastWrapper = document.querySelector('.weather__forecast');
 const forecastWindow = document.querySelector('.forecast__window');
 const slides = document.getElementsByClassName('forecast__list');
-console.log(slides);
-const slidesList = forecastLine.querySelectorAll('.forecast__list');
-console.log(slidesList);
 
-const width = forecastWindow.offsetWidth;
+console.log('const slides:', slides);
+const slidesList = document.querySelectorAll('.forecast__list');
+console.log('const slidesList:', slidesList)
+	
+	const slidesArray = Array.from(slides);
+	console.log(slidesArray);
+
+const width = forecastWindow.offsetWidth + 'px';
 console.log(width);
 console.log(slides.length);
+console.log(slidesList.length);
 	forecastLine.style.width = width * 4 + 'px';
 	slidesList.forEach(item => {
 		item.style.width = width + 'px';
 	})
 
-}
 
-moveSlides();
+
+// moveSlides();
 
 
 
